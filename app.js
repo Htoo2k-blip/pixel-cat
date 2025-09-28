@@ -77,8 +77,8 @@ document.getElementById("MySubmit").onclick = function(){
   username = document.getElementById("MyText").value;
   const bubble3 = document.getElementById("bubble3");
   const bubble7 = document.getElementById("bubble7")
-  bubble3.textContent = `Ahh! What a nice name. I hope you are having a great day, ${username}`
-  bubble7.textContent = `You've got this ${username}!`
+  bubble3.textContent = `Ahh! What a nice name. I hope you are having a great day, ${username}😀`
+  bubble7.textContent = `You've got this ${username}!💪`
   bubbles.forEach(bubble => bubble.classList.remove("show"));
   bubble3.classList.add("show");
 
@@ -88,5 +88,6 @@ document.getElementById("MySubmit").onclick = function(){
   
   current = Array.from(bubbles).indexOf(bubble3) + 1;
 };
+
 
 
