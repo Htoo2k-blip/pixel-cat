@@ -1,0 +1,213 @@
+    /*Background Design*/
+body{
+  background-image: url("image/blossom.gif");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-attachment: fixed;
+  margin: 0;
+}
+*{
+  cursor: none;
+ }
+.container{
+        width: 100px;
+        height: 100px;
+        position: relative; 
+        top: 425px;
+        left: 50%;
+    }
+    .pixel-cat{
+        width: 100px;
+        height: 100px;
+        animation-name: slideDown;
+        animation-duration: 5s;
+    }
+  
+    .SpeechBubble{
+      border: 20px solid transparent;
+      padding: 10px;
+      border-radius: 25px;
+      width: 200px;   
+      border-image: url(image/border.png) 25% round;
+      background-color: #ffb7c5;
+      background-clip: padding-box;
+      position: absolute;
+      bottom: 90px;
+      left: -70px;
+      font-family:"Pixelify Sans", sans-serif;
+      text-align: center;
+      opacity: 0;
+      transform: scale(1);
+      pointer-events: none;
+    }
+    .SpeechBubble.show{
+      animation: fadeSlideUp 3s ease forwards;
+      animation-fill-mode: forwards;
+      pointer-events: auto;
+      z-index: 10;
+    }
+    .SpeechBubble::after {
+      content: "";
+      position: absolute;
+      bottom: -20px; /* push tail below bubble */
+      left: 90px;    /* adjust horizontal position */
+      width: 0;
+      height: 0;
+
+      /* triangle tail*/
+      border-width: 20px 15px 0 15px;   /* top, right, bottom, left */
+      border-style: solid;
+      border-color: #ffb7c5 transparent transparent transparent; /* same as background */
+    }
+    #continueBtn{
+      border-radius: 5px;
+      padding: 1px 2px;
+      background-color: #ffb7c5;
+      transition: background-color 0.25s; 
+      font-family:"Pixelify Sans", sans-serif;
+      position:absolute;
+      top: 85px;
+      text-align: center;
+      opacity: 0;
+      transform: scale(0.2);
+      animation: bouncePop 2s ease 5s forwards, floatText 2s ease-in-out infinite alternate;
+      animation-fill-mode: forwards;
+    }
+    #continueBtn:hover{
+        background-color: #E4717A;
+    }
+
+    #continueBtn.quickPop{
+      animation: bouncePop 1s ease 0s forwards, floatText 2s ease-in-out infinite alternate;
+    }
+
+    #HeartCursor{
+      position: fixed;
+      width: 24px;
+      height: 24px;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      background-image: url('image/pixelheart_cursor.gif');
+      background-size: contain;
+      background-repeat: no-repeat;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      pointer-events: none;
+    }
+    #musicBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-image: url('image/pixel_cat3.gif');
+      background-size: cover; 
+      background-repeat: no-repeat; 
+      background-position: center; 
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      z-index: 1000;
+    }
+
+    #musicBtn:hover {
+      transform: scale(1.1);
+    }
+
+    #musicBtn2 {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-image: url('image/pixel_cat4.gif');
+      background-size: cover; 
+      background-repeat: no-repeat; 
+      background-position: center; 
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      z-index: 1000;
+    }
+
+    #musicBtn2:hover {
+      transform: scale(1.1);
+    }
+
+    .Float-Text {
+      position: fixed;
+      bottom: 95px; 
+      right: 25px;  
+      font-size: 20px; 
+      color: #E4717A;
+      background-color: transparent 
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-family: "Pixelify Sans", sans-serif;
+      pointer-events: none; 
+      z-index: 1001;
+      animation: floatText 2s ease-in-out infinite alternate;
+    }
+
+    #newpageBtn{
+      display: none;
+      border-radius: 5px;
+      padding: 1px 2px;
+      background-color: #ffb7c5;
+      transition: background-color 0.25s; 
+      font-family:"Pixelify Sans", sans-serif;
+      position:absolute;
+      text-align: center;
+      opacity: 0;
+      transform: scale(0.2);
+      animation: bouncePop 2s ease 0s forwards, floatText 2s ease-in-out infinite alternate;
+      animation-fill-mode: forwards;
+    }
+    #newpageBtn:hover{
+        background-color: #E4717A;
+    }
+    /*Fade-In animation for the cat*/
+    @keyframes slideDown{
+        from{transform: translateY(-500%);
+        opacity: 0;
+    }
+        to{transform: translateY(0);
+        opacity:1;
+        }
+    }
+    /*Pop-up animation for speech bubble*/
+    @keyframes fadeSlideUp {
+      0% {
+        transform: translateY(15px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    @keyframes bouncePop {
+      0% {
+        transform: scale(0.3);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    @keyframes floatText{
+      0%{
+        transform: translateX(0px);
+      }
+      100%{
+        transform: translateY(8px);
+      }
+  }
