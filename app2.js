@@ -100,7 +100,7 @@ yesBtn.addEventListener('click', event => {
     if (speechIndex >= 0) {
         Speech.forEach(s => s.classList.remove("show"));
 
-        Speech[speechIndex].innerHTML = "<p>Yay!!!🎉💖😻 You just made my day 1000x better!</p>"; 
+        Speech[speechIndex].innerHTML = "<p>Yay!!!🎉😻You just made my day 1000x better! Love you lots💖💖</p>"; 
         Speech[speechIndex].classList.add("show");
     }
 });
@@ -138,3 +138,4 @@ document.addEventListener("mouseup", () => {
 });
 
 //YesBtn & NoBtn result
+
